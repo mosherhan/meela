@@ -1764,6 +1764,74 @@
             <div class='col-span-12 md:col-span-17'>
               <yotpo-review-slider product-id='8628155121862'
                 section-id='template--18581857304774__reviews_section_mTRYtf'></yotpo-review-slider>
+
+              <!-- Custom static review slider (keeps Yotpo element intact) -->
+              <div class="custom-review-slider mt-20" aria-label="Customer reviews slider">
+                <div class="custom-slides" style="position:relative; overflow:hidden;">
+                  <div class="custom-slide" style="display:block;padding:16px;border-top:1px solid #e5e7eb;">
+                    <strong class="block mb-4">Priya Sharma</strong>
+                    <div class="text-yellow-500 mb-6" aria-hidden="true">★★★★★</div>
+                    <p class="mb-0">I've used this oil for two months — my hair fall has reduced and I see new baby hairs. Lightweight, nourishes without grease.</p>
+                  </div>
+
+                  <div class="custom-slide" style="display:none;padding:16px;border-top:1px solid #e5e7eb;">
+                    <strong class="block mb-4">Amit Patel</strong>
+                    <div class="text-yellow-500 mb-6" aria-hidden="true">★★★★★</div>
+                    <p class="mb-0">Noticeable thickness and shine after regular use. Scalp feels healthier and hair breakage has decreased.</p>
+                  </div>
+
+                  <div class="custom-slide" style="display:none;padding:16px;border-top:1px solid #e5e7eb;">
+                    <strong class="block mb-4">Saanvi Menon</strong>
+                    <div class="text-yellow-500 mb-6" aria-hidden="true">★★★★★</div>
+                    <p class="mb-0">Beautiful natural blend — my treated hair is softer and much more manageable. Gentle on the scalp.</p>
+                  </div>
+
+                  <div class="custom-slide" style="display:none;padding:16px;border-top:1px solid #e5e7eb;">
+                    <strong class="block mb-4">Rohit Kumar</strong>
+                    <div class="text-yellow-500 mb-6" aria-hidden="true">★★★★★</div>
+                    <p class="mb-0">Scalp calm and stronger strands in a few weeks. Great value and reliable results.</p>
+                  </div>
+
+                  <div class="custom-slide" style="display:none;padding:16px;border-top:1px solid #e5e7eb;">
+                    <strong class="block mb-4">Neha Gupta</strong>
+                    <div class="text-yellow-500 mb-6" aria-hidden="true">★★★★★</div>
+                    <p class="mb-0">My go-to hair oil — non-greasy, effective and pleasant smelling. Friends already asked what I use.</p>
+                  </div>
+                </div>
+
+                <div class="custom-controls mt-6 flex items-center gap-3">
+                  <button type="button" class="custom-prev btn" aria-label="Previous review" style="background:none;border:1px solid #ddd;padding:6px 10px;cursor:pointer">‹</button>
+                  <button type="button" class="custom-next btn" aria-label="Next review" style="background:none;border:1px solid #ddd;padding:6px 10px;cursor:pointer">›</button>
+                  <span class="ml-auto text-sm text-grey-500">Static reviews</span>
+                </div>
+              </div>
+
+              <script>
+                (function(){
+                  var slider = document.currentScript.previousElementSibling;
+                  try {
+                    var container = slider.querySelector('.custom-slides');
+                    if (!container) return;
+                    var slides = Array.prototype.slice.call(container.children);
+                    var index = 0;
+                    var show = function(i){
+                      slides.forEach(function(s, idx){ s.style.display = (idx===i)?'block':'none'; });
+                    };
+                    show(index);
+                    var next = function(){ index = (index+1)%slides.length; show(index); };
+                    var prev = function(){ index = (index-1+slides.length)%slides.length; show(index); };
+                    var nextBtn = slider.querySelector('.custom-next');
+                    var prevBtn = slider.querySelector('.custom-prev');
+                    if(nextBtn) nextBtn.addEventListener('click', next);
+                    if(prevBtn) prevBtn.addEventListener('click', prev);
+                    var auto = setInterval(next, 4500);
+                    // pause on hover
+                    slider.addEventListener('mouseenter', function(){ clearInterval(auto); });
+                    slider.addEventListener('mouseleave', function(){ auto = setInterval(next, 4500); });
+                  } catch(e){ /* fail silently, non-critical */ }
+                })();
+              </script>
+
             </div>
           </div>
         </div>

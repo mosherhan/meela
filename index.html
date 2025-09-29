@@ -520,28 +520,30 @@
 
 
                 </ul>
-                <div class='flex flex-wrap lg:hidden mt-auto pb-100'>
-                  <div class='flex flex-col w-6/12 justify-start'>
-                    <div class='body-text font-medium mb-15'>Account</div>
-                    <a href='/account' class='font-heading text-lead leading-standard block'>Account</a>
-
-                  </div>
-
-                </div>
-              </nav>
-            </div>
-            <div class='tw-col ml-auto  lg:w-5/24 flex flex-wrap gap-10 md:gap-15 justify-end items-center nav--tools'>
-
-
-
-              </button>
-
-              <button class='nav-trigger w-[25px] h-[25px] ml-15' type='button' aria-label='Toggle Menu'>
-                <span> </span>
-              </button>
-            </div>
+          <div class='tw-col ml-auto  lg:w-5/24 flex flex-wrap gap-10 md:gap-15 justify-end items-center nav--tools'>
+          
+          
+            <a href='/account' class='font-medium hidden xs:inline-block'>
+          
+              Login
+          
+            </a>
+          
+          
+          
+            <button id='cart-trigger' class='cart-trigger inline-flex items-center shrink-0' data-target='cart' type='button'>
+              <span id='cart-count' class='inline-flex items-center relative transition-colors duration-300 ease-out font-medium'>
+                Cart
+          
+              </span>
+            </button>
+          
+            <button class='nav-trigger w-[25px] h-[25px] ml-15' type='button' aria-label='Toggle Menu'>
+              <span> </span>
+            </button>
           </div>
-        </div>
+          </div>
+          </div>
       </header>
 
 
